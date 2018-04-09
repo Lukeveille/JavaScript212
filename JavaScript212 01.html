@@ -4,19 +4,43 @@
         <title>Javascript test page</title>
         <meta charset="UTF-8" />
         <style>
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
+            margin-top: 10%;
+            font-size: 30px;
+            font-weight: bold;
         }
+
         </style>
     </head>
-    <body>
+    <body id="body">
         
         <script>
         
         var name = prompt('Enter your name:');
 
         document.write('Hello ' + name + '!');
+
+        var body = document.getElementById('body');
+        var butt = document.createElement('button');
+        var br = document.createElement('br');
+        var text = document.createTextNode('This button was created in Javascript!');
+
+        butt.appendChild(text);
+            
+        body.appendChild(br);
+
+        body.appendChild(butt);
+        butt.id='butt';
+
+        var para = document.getElementById('butt');
+
+        var opt = confirm('yes or no?');
+        if (opt==true) {
+            para.innerHTML='New words';
+        }
 
         </script>
 
