@@ -13,35 +13,50 @@
             font-weight: bold;
         }
 
+        #funnyButton {
+            font-style: oblique;
+        }
+        #funnyButton:hover {
+            font-size: 40px;
+            font-style: normal;
+        }
         </style>
     </head>
     <body id="body">
         
         <script>
         
-        var name = prompt('Enter your name:');
+        var splitArray = prompt('Type a sentence:');
+        var spacer = splitArray.split(' ', 3);
 
-        document.write('Hello ' + name + '!');
-
-        var body = document.getElementById('body');
-        var butt = document.createElement('button');
-        var br = document.createElement('br');
-        var text = document.createTextNode('This button was created in Javascript!');
-
-        butt.appendChild(text);
-            
-        body.appendChild(br);
-
-        body.appendChild(butt);
-        butt.id='butt';
-
-        var para = document.getElementById('butt');
-
-        var opt = confirm('yes or no?');
-        if (opt==true) {
-            para.innerHTML='New words';
+        for (index in spacer) {
+            document.write(spacer[index] + ', ');
         }
+            
+        //document.write(parseFloat(number1 % number2));
 
+        if (spacer[0]=='hello') {
+            document.write('<div id="funnyButton">Parse a word</div>')
+            for (i=0; i<=100; i++) {
+                document.write('<br />');
+                var mult = false;
+                
+                if (i > 0 && i % 3 == 0) {
+                    document.write('fizz');
+                    mult = true;
+                }
+                
+                if (i > 0 && i % 5 == 0) {
+                    document.write('buzz');
+                    mult = true;
+                }
+                
+                if (!mult) {
+                    document.write(i);
+                }
+            }
+        }
+        
         </script>
 
     </body>
