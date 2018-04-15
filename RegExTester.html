@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Javascript test page</title>
+        <meta charset="UTF-8" />
+        <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 10%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #funnyButton {
+            font-style: oblique;
+        }
+        #funnyButton:hover {
+            font-size: 40px;
+            font-style: normal;
+        }
+        </style>
+    </head>
+    <body id="body">
+        
+        <script>
+        
+        var textInput = prompt('Type a sentence:');
+        
+        //var myExp = /\w\s/g;
+        var myExp = /[\"\']?\w+([\'\-]?\w+)?((\W+\s?)*[\s\.\!\?])/g;
+
+        var output = myExp.test(textInput);
+        
+        document.write(output + '<br />');
+        document.write('<br />' + textInput + '<br />');
+
+        if (output) {
+            var textArray = textInput.match(myExp);
+            
+            for (i=0; i<textArray.length; i++) {
+                document.write('<br />' + textArray[i]);
+            }                
+        }
+        
+        </script>
+
+    </body>
+</html>
