@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Javascript test page</title>
+        <title>Javascript Clock</title>
         <meta charset="UTF-8" />
         <style>
 
@@ -23,48 +23,39 @@
         </style>
     </head>
     <body id="body">
+
+        <code id='clock'></code><br />
         
-        <code id="clock"></code>
+        <br /><button id='stopIt' onClick='stopIt()'>Stop!</button>
 
         <script>
         var clockDisplay = document.getElementById('clock');
-            
-        var newObject = {
-            stuff1: {
-                thing1: 5,
-                thing2: 7,
-                thing3: 9,
-                thing4: 3
-            },
-            stuff2: {
-                thingA: 3,
-                thingB: 4,
-                thingC: 2,
-                thingD: 1
-            },
-            this: 'Hello',
-            that: 'Goodbye'
-        }
 
         function currentTime() {
-            clockDisplay.innerHTML='';
             var d = new Date();
             var H = d.getHours();
+            var M = d.getMinutes();
+            var S = d.getSeconds();
             if (H > 12) {
                 H -= 12;
             }
-            var M = d.getMinutes();
             if (M < 10) {
                 M = '0' + M;
             }
-            var S = d.getSeconds();
             if (S < 10) {
                 S = '0' + S;
             }
             var clock = H + ':' + M + ':' + S;
             clockDisplay.innerHTML=clock;
         }
+        
+        function stopIt() {
+            clearInterval(initiate);
+        }
+
         var initiate = setInterval(function(){currentTime()}, 1000);
+
+        var tenSec = setTimeout(function(){alert('You\'ve been here 10 seconds!')}, 10000);
 
         </script>
 

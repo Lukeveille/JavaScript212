@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Javascript test page</title>
+        <title>Javascript RegEx test page</title>
         <meta charset="UTF-8" />
         <style>
 
@@ -31,7 +31,7 @@
         //var myExp = /\w\s/g;
         var myExp = /[\"\']?\w+([\'\-]?\w+)?((\W+\s?)*[\s\.\!\?])/g;
 
-        var output = myExp.test(textInput);
+        var output = myExp.test(textInput); 
         
         document.write(output + '<br />');
         document.write('<br />' + textInput + '<br />');
