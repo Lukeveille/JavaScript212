@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Javascript Clock</title>
+        <title>Javascript calculator</title>
         <meta charset="UTF-8" />
         <style>
 
@@ -22,18 +22,51 @@
         }
         </style>
     </head>
-    
     <body id="body">
-
-        <code id='clock'></code><br />
         
-        <br /><button id='stopIt' onClick='stopIt()'>Stop!</button>
+        <input id="x" />
+        <select id="type">
+            <option value="1">Addition</option>
+            <option value="2">Subtraction</option>
+            <option value="3">Multiplication</option>
+            <option value="4">Division</option>
+        </select>
+        <input id="y" />
+        <button id="calc" onclick="checkType()">Calculate!</button>
+        <br />
+        <br /><div id="resultBox"></div>
+        <code id="clock"></code><br />
+        <br /><code id="calendar"></code><br />
+        <div id="typeBox" class="typeClass"></div>
 
         <script>
-        
+
+        var result = document.querySelector('#resultBox');
+
+        function checkType() {
+            var x = Number(document.querySelector('#x').value);
+            var y = Number(document.querySelector('#y').value);
+            var z;
+            var type = document.querySelector('#type').value;
+
+            if (type==1) {
+                z = x + y;
+            } else if (type==2){
+                z = x - y;
+            } else if (type==3){
+                z = x * y;
+            } else if (type==4){
+                z = x / y;
+            }
+
+            result.innerHTML = z + '<br />';
+        }
+
         var clockDisplay = document.getElementById('clock');
         var calendarDisplay = document.getElementById('calendar');
         var date = new Date();
+
+        var initiate = setInterval(function(){currentTime()}, 1000);
 
         var fullDateTime = {
             date: date,
@@ -48,8 +81,6 @@
                 seconds: date.getSeconds(),
             },
         }
-
-        var initiate = setInterval(function(){currentTime()}, 1000);
 
         function currentTime() {
             clockDisplay.innerHTML='';
@@ -132,6 +163,7 @@
             clockDisplay.innerHTML=clock;
             calendarDisplay.innerHTML=cal;
         }
+
         </script>
 
     </body>

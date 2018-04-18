@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Modal Page</title>
+        <meta charset="UTF-8" />
+        <link href="JavaScriptAsignment03.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+
+        <div id="params">
+            <input id="title" placeholder="The Title" size="25" /><br />
+            <input id="subtitle" placeholder="The Sub-Title" size="28" /><br />
+            <textarea id="textBody" placeholder="Text for the body" rows="10"cols="30"></textarea><br />
+            <button id="modalBtn">Modal Me!</button>
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modalContent">
+                <span class="close">&times;</span>
+                <h1 id="modalHead"></h1>
+                <h2 id="subHead"></h2>
+                <p id="modalBody"></p>
+            </div>
+        </div>
+
+        <script src="JavaScriptAsignment03.js" type="text/javascript"></script>
+
+    </body>
+</html>

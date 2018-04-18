@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Javascript Clock</title>
+        <title>Javascript test page</title>
         <meta charset="UTF-8" />
         <style>
 
@@ -22,18 +22,32 @@
         }
         </style>
     </head>
-    
     <body id="body">
-
-        <code id='clock'></code><br />
         
-        <br /><button id='stopIt' onClick='stopIt()'>Stop!</button>
+        <code id="clock"></code><br />
+        <br /><code id="calendar"></code><br />
+        <br /><a id='yourl' href='http://www.google.ca/'></a>
+        <div id='typeBox' class='typeClass'></div>
 
         <script>
+        var name = prompt('What is your first name?');
+        var favouriteThings = prompt('What are some of your favourite things?');
+        name = name.toLowerCase();
+        favouriteThings = favouriteThings.toLowerCase();
+        things = favouriteThings.split(' ');
+        thingsURL = things.join('-');
+
+        var yourl = 'http://www.' + name + '.com/' + thingsURL + '/ ';
+
         
+
         var clockDisplay = document.getElementById('clock');
         var calendarDisplay = document.getElementById('calendar');
+        var linkage = document.getElementById('yourl');
         var date = new Date();
+
+        var initiate = setInterval(function(){currentTime()}, 1000);
+        linkage.innerHTML = yourl;
 
         var fullDateTime = {
             date: date,
@@ -48,8 +62,6 @@
                 seconds: date.getSeconds(),
             },
         }
-
-        var initiate = setInterval(function(){currentTime()}, 1000);
 
         function currentTime() {
             clockDisplay.innerHTML='';
@@ -132,6 +144,7 @@
             clockDisplay.innerHTML=clock;
             calendarDisplay.innerHTML=cal;
         }
+
         </script>
 
     </body>
