@@ -9,6 +9,11 @@ var btn = document.getElementById("modalBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // Grabs user input, applies it to modal, then reveals modal
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
 btn.onclick = function() {
     var title = document.querySelector("#title").value;
     var subtitle = document.querySelector("#subtitle").value;
@@ -22,11 +27,11 @@ btn.onclick = function() {
 
 // Hides modal when user clicks X
 span.onclick = function() {
-    modal.style.display = 'none';
+    closeModal();
 }
 
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        closeModal();
     }
 }
